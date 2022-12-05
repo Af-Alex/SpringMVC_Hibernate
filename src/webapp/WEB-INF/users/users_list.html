@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>All users</title>
+</head>
+<body>
+<p>Hello! Do you want to <a href="/users/new">add</a> user?</p>
+Anyway, you can see here all registered users below:
+
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">First name</th>
+                <th scope="col">Last name</th>
+                <th scope="col">Age</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="user : ${userList}">
+                <td th:text="${user.getId()}">
+                <td><a th:href="@{/users/{id}(id=${user.getId()})}" th:text="${user.getFirstName()}"></a></td>
+                <td th:text="${user.getLastName()}">
+                <td th:text="${user.getAge()}">
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
